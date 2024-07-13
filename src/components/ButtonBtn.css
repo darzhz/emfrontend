@@ -1,0 +1,12 @@
+.btn {
+    background-color: #D31CD7;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    width: 90px;
+    border: 1px solid #EC221F;
+
+}
+.btn-not{
+    background-color: #55B6CB;
+}
