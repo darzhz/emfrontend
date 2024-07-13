@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Content.css";
+import Model from "./Model";
 
 function Contents({ showform }) {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ function Contents({ showform }) {
     duration: "",
     venue: ""
   });
+  const [showModel,setShowModel] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,22 +22,36 @@ function Contents({ showform }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const response = await fetch('/api/endpoint', { // Replace with your API endpoint
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(formData),
-    // });
-    console.log(JSON.stringify(formData));
+    setShowModel(true);
+  };
+  const confirmSubmit = async () => {
+    setShowModel(false); // Close the modal
+    const response = await fetch('http://localhost:5137/api/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
-    // if (response.ok) {
-    //   console.log("Form submitted successfully!");
-    //   // Handle success
-    // } else {
-    //   console.log("Form submission failed!");
-    //   // Handle error
-    // }
+    if (response.ok) {
+      console.log("Form submitted successfully!");
+      // Optionally reset form data here
+      setFormData({
+        name: "",
+        desc: "",
+        timedate: "",
+        duration: "",
+        venue: ""
+      });
+    } else {
+      console.log("Form submission failed!");
+      // Handle error
+    }
+  };
+
+  const cancelSubmit = () => {
+    setShowModel(false); // Close the modal
   };
 
   return (
@@ -86,6 +102,13 @@ function Contents({ showform }) {
               <button type="submit" className="pub">Publish</button>
             </div>
           </div>
+          {showModel && (
+        <Model
+          message="Are you sure you want to submit this form?"
+          confirmHandler={confirmSubmit}
+          cancelHandler={cancelSubmit}
+        />
+      )}
         </form>
       </div>
     </>

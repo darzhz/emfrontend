@@ -1,5 +1,10 @@
 import "./Nav.css";
+import { useNavigate } from "react-router-dom";
 function Nav() {
+  const navigate = useNavigate();
+  const orgLogin = () =>{
+    navigate("/org");
+  }
   return (
     <>
       <div className="nav">
@@ -8,7 +13,7 @@ function Nav() {
           <div className="basename">Fest Name</div>
           <div className="subname">College Name</div>
         </div>
-        <div className="pfp">
+        <div className="pfp" onClick={orgLogin}>
           <svg
             width="60"
             height="56"

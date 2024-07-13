@@ -1,27 +1,17 @@
 import './App.css';
-import ButtonBtn from './components/ButtonBtn';
-import Contents from './components/Contents';
-import Nav from './components/Nav';
-import { useState } from 'react';
+import OrgScreen from './components/OrgScreen';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import UserScreen from './components/UserScreen';
+
 function App() {
-  const [showform,setshowform] = useState(true);
-  function changeHandler(state) {
-    setshowform(state)
-  }
+
   return (
-    <div className='app'>
-       <Nav/>
-       <div className="btn-spot">
-       <ButtonBtn state={showform} changeHandler={changeHandler}/>
-       </div>
-       {showform==true?(
-        <Contents/>
-       ):(
-        <div>
-          no content
-        </div>
-       )}
-    </div>
+   <Router>
+   <Routes>
+    <Route path='/org' element={<OrgScreen/>}/>
+    <Route path='/' element={<UserScreen/>}/>
+   </Routes>
+   </Router>
   );
 }
 
