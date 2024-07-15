@@ -16,6 +16,7 @@ input,textarea{
     margin: 10px;
     border-radius: 10px;
     font-size: 16px;
+    padding-left: 10px;
 }
 input::placeholder{
     padding: 10px;

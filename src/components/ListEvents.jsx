@@ -12,7 +12,9 @@ function ListEvents({ content }) {
     return (
         <>
             {content.length === 0 ? (
-                <h2>There are no events to be shown</h2>
+                <div className="text_centered">
+                    <h2>There are no events to be shown</h2>
+                </div>
             ) : (
                 <>
                     {content.map((item, i) => (

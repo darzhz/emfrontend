@@ -66,6 +66,7 @@ function Contents({ showform }) {
               placeholder="Name of Event"
               value={formData.name}
               onChange={handleChange}
+              required
             />
             <textarea
               name="desc"
@@ -73,6 +74,8 @@ function Contents({ showform }) {
               placeholder="Description"
               value={formData.desc}
               onChange={handleChange}
+              required
+              maxLength={200}
             ></textarea>
             <div className="mini">
               <input
@@ -82,6 +85,7 @@ function Contents({ showform }) {
                 placeholder="Date & Time"
                 value={formData.timedate}
                 onChange={handleChange}
+                required
               />
               <input
                 type="number"
@@ -90,6 +94,7 @@ function Contents({ showform }) {
                 placeholder="Duration"
                 value={formData.duration}
                 onChange={handleChange}
+                required
               />
               <input
                 type="text"
@@ -98,6 +103,7 @@ function Contents({ showform }) {
                 placeholder="Venue"
                 value={formData.venue}
                 onChange={handleChange}
+                required
               />
               <button type="submit" className="pub">Publish</button>
             </div>

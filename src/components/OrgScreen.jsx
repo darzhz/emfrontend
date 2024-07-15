@@ -2,7 +2,6 @@ import '../App.css';
 import ButtonBtn from './ButtonBtn';
 import Contents from './Contents';
 import Nav from './Nav';
-import Model from './Model';
 import ListEvents from './ListEvents'
 import { useEffect, useState } from 'react';
 function OrgScreen() {
@@ -27,7 +26,7 @@ function OrgScreen() {
         }
     }
    fetchEvents();
-  },[])
+  },[showform])
   return (
     <div className='app'>
        <Nav/>
@@ -35,7 +34,7 @@ function OrgScreen() {
          <ButtonBtn state={showform} changeHandler={changeHandler}/>
          </div>
       
-       {showform==true?(
+       {showform===true?(
         <Contents/>
        ):(
         <div>

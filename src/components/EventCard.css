@@ -27,3 +27,24 @@
     align-items: flex-start;
     width: 225px;
 }
+.text_centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.event_desc {
+    display: -webkit-box;
+    max-width: 500px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.event_desc:hover{
+    -webkit-box-orient: inherit;
+
+    overflow: visible;
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    max-width: fit-content;
+}
