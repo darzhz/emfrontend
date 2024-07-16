@@ -10,8 +10,8 @@ function Nav() {
       <div className="nav">
         <div id="logo">🔥</div>
         <div className="name">
-          <div className="basename">IGNITE</div>
-          <div className="subname">MahaguruTech</div>
+          <div className="subname">IGNITE</div>
+          <div className=" basename">MahaguruTech</div>
         </div>
         <div className="pfp" onClick={orgLogin}>
           <svg

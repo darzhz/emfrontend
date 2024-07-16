@@ -1,5 +1,10 @@
 import "./EventCard.css"
 function EventCard({Event,num}){
+    const convertString = () => {
+        const date = new Date("2025-02-07T18:05");
+        const localizedString = date.toLocaleString();
+        return localizedString;
+    }
     return(
         <div className="eventcards">
         <div className="sl_num">
@@ -15,7 +20,7 @@ function EventCard({Event,num}){
         </div>
         <div className="date_place">
                 <div className="event_date">
-                Date -{Event.timedate}
+                Date -{convertString(Event.timedate)}
                 </div>
                 <div className="event_duration">
                 Venue -{Event.venue}
