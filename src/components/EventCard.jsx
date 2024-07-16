@@ -1,9 +1,9 @@
 import "./EventCard.css"
-function EventCard({Event}){
+function EventCard({Event,num}){
     return(
         <div className="eventcards">
         <div className="sl_num">
-            {Event.id}.
+            {++num}.
         </div>
         <div className="details_container">
             <div className="event_name">

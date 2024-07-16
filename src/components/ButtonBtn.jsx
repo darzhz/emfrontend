@@ -8,9 +8,9 @@ function ButtonBtn({state,changeHandler}){
         {state===false? (
              <button className="btn" onClick={()=>{ToggleBtn()}}>
              Create +
-         </button>
+             </button>
         ):(
-            <button className=" btn btn-not" onClick={()=>{ToggleBtn()}}>
+            <button className="btn btn-not" onClick={()=>{ToggleBtn()}}>
                 Back
             </button>
         )}
