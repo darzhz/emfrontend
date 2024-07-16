@@ -68,6 +68,7 @@ function Contents({ showform }) {
   return (
     <>
       <div className="form">
+      <div className="title">Create</div>
         <form id="form" onSubmit={handleSubmit}>
           <div className="fields">
             <label htmlFor="name">Name of Event</label>
