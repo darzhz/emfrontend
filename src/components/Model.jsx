@@ -7,7 +7,9 @@ function Model({ message, confirmHandler, cancelHandler }) {
         <div className="message">{message}</div>
         <div className="control">
           <button className="btn-diag confirm" onClick={confirmHandler}>Confirm</button>
-          <button className="btn-diag" onClick={cancelHandler}>Cancel</button>
+          {cancelHandler && (
+            <button className="btn-diag" onClick={cancelHandler}>Cancel</button>
+          )}
         </div>
       </div>
     </div>

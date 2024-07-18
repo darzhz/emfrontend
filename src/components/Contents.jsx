@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Content.css";
 import Model from "./Model";
+import DurationComponent from "./DurationComponent";
 function Contents({ showform }) {
   const getCurrentDateTime = () => {
     const now = new Date();
@@ -12,7 +13,6 @@ function Contents({ showform }) {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
-  // Set min attribute to current date and time
   const minDateTime = getCurrentDateTime();
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +22,8 @@ function Contents({ showform }) {
     venue: ""
   });
   const [showModel,setShowModel] = useState(false);
+  const [showStatus,setShowStatus] = useState(false);
+  const [stat,setStat] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -46,8 +48,9 @@ function Contents({ showform }) {
     });
 
     if (response.ok) {
+      setShowStatus(true);
+      setStat("Form submitted successfully!")
       console.log("Form submitted successfully!");
-      // Optionally reset form data here
       setFormData({
         name: "",
         desc: "",
@@ -64,6 +67,9 @@ function Contents({ showform }) {
   const cancelSubmit = () => {
     setShowModel(false); // Close the modal
   };
+  const closeStatus = () => {
+    setShowStatus(false);
+  }
 
   return (
     <>
@@ -77,7 +83,7 @@ function Contents({ showform }) {
               type="text"
               name="name"
               id="name"
-              placeholder="Enxcl Launch Party"
+              placeholder="Enter a name for the event"
               value={formData.name}
               onChange={handleChange}
               required
@@ -87,7 +93,7 @@ function Contents({ showform }) {
             <textarea
               name="desc"
               id="desc"
-              placeholder="Description XYZ"
+              placeholder="Enter a small Description for the event"
               value={formData.desc}
               onChange={handleChange}
               required
@@ -115,7 +121,7 @@ function Contents({ showform }) {
                 name="venue"
                 id="venue"
                 className="minis"
-                placeholder="Trivandrum"
+                placeholder="Enter a venue or location"
                 value={formData.venue}
                 onChange={handleChange}
                 required
@@ -125,20 +131,7 @@ function Contents({ showform }) {
                 <label htmlFor="duration">Duration</label>
                 </div>
 
-              <input
-                type="number"
-                name="duration"
-                id="duration"
-                placeholder="Duration"
-                min="0"
-                step="0.1"
-                value={formData.duration}
-                onChange={handleChange}
-                required
-              />
-              <span>
-                Hrs
-              </span>
+              <DurationComponent handleChange={handleChange} formData={formData}/>
               </div>
                
               <button type="submit" className="pub">Publish</button>
@@ -149,6 +142,12 @@ function Contents({ showform }) {
           message="Are you sure you want to publish this event?"
           confirmHandler={confirmSubmit}
           cancelHandler={cancelSubmit}
+        />
+      )}
+      {showStatus && (
+        <Model
+          message={stat}
+          confirmHandler={closeStatus}
         />
       )}
         </form>
