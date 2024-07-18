@@ -1,6 +1,5 @@
 import "./ButtonBtn.css";
 import "./BackBtn"
-import BackBtn from "./BackBtn";
 import { useEffect, useState } from "react";
 import Model from "./Model";
 function ButtonBtn({state,changeHandler}){
