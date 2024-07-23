@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import UserScreen from "./components/UserScreen";
+import Loginscreen from "./components/Loginscreen";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/org" element={<OrgScreen />} />
         <Route path="/" element={<UserScreen />} />
+        <Route path="/login" element={<Loginscreen/>}/>
       </Routes>
     </Router>
   );

@@ -1,0 +1,85 @@
+.bttn{
+    background-color: #03CCF9;
+    cursor: pointer;
+    size: 50px;
+    margin-left: 45px;
+    height: 20px;
+    width: 100px;
+    height: 50px;
+    
+}
+
+
+.orm{
+    display: flex;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+    font-size:20px;
+    padding-top: 70px;
+    
+}
+.pass{
+    margin-left: 190px;
+    color:black;
+    font-size:20px ;
+    size:100px;
+}
+.sign{
+    color:#03CCF9;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    
+
+    
+}
+.size{
+    
+    display: flex;
+    gap: 8px;
+    font-size: 10px;
+    color: white;
+    padding-left: 100px;
+
+}
+.li {
+    text-decoration: none;
+}
+.tyle{
+    display: flex;
+    align-items: center;
+    
+}
+#gun{
+    gap: 93px;
+}
+.fon{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 10px;
+}
+.mi{
+    height: 40px;
+    padding-left: 20px;
+
+}
+.tii{
+    height: 40px;
+    padding-left: 20px;
+}
+.bttn{
+    width:85px;
+    height:40px;
+    border-radius: 7px;
+}
+.login_field{
+    display: flex;
+    flex-direction: column;
+}
+
