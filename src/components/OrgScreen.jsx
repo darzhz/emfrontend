@@ -16,7 +16,7 @@ function OrgScreen() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const resp = await fetch("http://localhost:5137/api/list");
+        const resp = await fetch("http://192.168.2.83:5137/api/list");
         if (!resp.ok) {
           throw new Error(`Response status: ${resp.status}`);
         }

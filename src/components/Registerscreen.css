@@ -1,0 +1,45 @@
+#whole{
+ display: flex;
+ justify-content: center;
+ margin-top: 100px;
+ gap: 139px;
+
+
+}
+.firstblock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.Secondblock{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    
+}
+input,select{
+    width: 30vw
+}
+.procbutton{
+    background-color: #03CCF9;
+    width: 180px;
+   color: azure;
+    height:50px;
+    margin-left: 240px;
+    border: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+    
+}
+.head{
+    color: blueviolet;
+    text-align: center;
+    font-size: 40px;
+    
+}
+.sclg{
+     width: 32vw;
+}
+
+
