@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import UserScreen from "./components/UserScreen";
+import Loginscreen from "./components/Loginscreen";
 import Registerhome from "./components/Registerhome";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/org" element={<OrgScreen />} />
         <Route path="/" element={<UserScreen />} />
+        <Route path="/login" element={<Loginscreen/>}/>
         <Route path="/reg" element={<Registerhome/>}/>
       </Routes>
     </Router>
