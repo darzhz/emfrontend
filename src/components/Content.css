@@ -58,6 +58,7 @@ input[name="name"] {
 }
 #duration {
     color: rebeccapurple;
+    width: auto;
 }
 .after{
     display: block;
