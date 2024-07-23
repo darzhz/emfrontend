@@ -8,6 +8,8 @@ function Registerscreen() {
     //last or return msg
     const[showStatus,setShowStatus]=useState(false);
     const[stat,setStat]=useState(null);
+    //to remove collegename
+    const [sclg,setsclg]=useState("initial");
 
 
 
@@ -16,8 +18,11 @@ function Registerscreen() {
             if(e.target.value === "mit"){
                 setClgId(true);
             }
-            else
+            else{
              setClgId(false);
+            setformsData({...formsData,clg_id:""});
+            }
+            setsclg(e.target.value);
     }
     function submitted(e){
         e.preventDefault();
@@ -43,7 +48,17 @@ function Registerscreen() {
   }
   function statclose(){
     setShowStatus(false);
+   setformsData({ fname:"",
+        email:"",
+        semester:"",
+        lname:"",
+        branch:"",
+        password:"",
+        clg_id:""})
+        setsclg("initial");
+      
 }
+
 
   async function confirmSubmit(){
     setPopeup(false);
@@ -79,19 +94,19 @@ function Registerscreen() {
             <div className='firstblock'>
             <input className='fname' type="text" id='fname' name='fname' placeholder='FirstName'value={formsData.fname} onChange={handlechange} required/>
             <input type="email" id="email" name="email" placeholder='Email'pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"value={formsData.email} onChange={handlechange} required />
-            <input className='sem'  min="1" max="8" type="number" id='sem' name="semester" placeholder='Semester'value={formsData.sem} onChange={handlechange} required/>
+            <input className='sem'  min="1" max="8" type="number" id='sem' name="semester" placeholder='Semester'value={formsData.semester} onChange={handlechange} required/>
             <input id='password' type='password' minLength={4} name='password' placeholder='Password' value={formsData.password} onChange={handlechange} required/>
             </div>
             <div className='Secondblock'>
             <input className='lname' type="text" id='lname' name="lname" placeholder='LastName' value={formsData.lname} onChange={handlechange} required/>
             <input className='branch' type="text" id='branch' name="branch" placeholder='Branch' value={formsData.branch} onChange={handlechange} required/>
-            <select className='sclg' value={formsData.sclg} onChange={toggleClgId} placeholder='Select' required>
-                <option>Select College</option>
+            <select className='sclg'  value={sclg} onChange={toggleClgId} placeholder='Select' required>
+                <option value="initial">Select College</option>
                 <option value="mit" > Mahaguru Institute Of Technology</option>
                     <option value="others">Other College</option>
             </select>
             {showClgId && (
-                 <input className='clgid' type='text' name='clg_id'placeholder='Enter College Id' required/>
+                 <input className='clgid' type='text' name='clg_id'placeholder='Enter College Id' onChange={handlechange} value={formsData.clg_id} required/>
             )}
 
             <div > <button type='submit' className='procbutton'>Proceed</button></div>
