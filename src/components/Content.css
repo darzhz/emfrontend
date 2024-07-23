@@ -10,7 +10,7 @@
     width: 92vw; /*new change*/
     padding: 3px;
 }
-input,textarea{
+input,textarea,select{
     background-color:#D9D9D9;
     height: 64px;
     border: none;
